@@ -1,0 +1,44 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <div class="col-6 p-0">
+      <a href="/home" class="hzfq-brand font-weight-bold text-decoration-none">湖之风情</a>
+    </div>
+    <div class="col-6 p-0">
+      <a href="https://github.com/hzfq/">
+        <nb-icon icon="github" class="float-right"></nb-icon>
+      </a>
+    </div>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <!--    <router-outlet></router-outlet>-->
+    <div class="col-12 col-lg-8 offset-lg-2">
+      <ngb-carousel *ngIf="imgs" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let img of imgs">
+          <div>
+            <img class="hzfq-carousel-img" [src]="img" alt="Random slide">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+
+    <div class="col-sm-4 offset-sm-4 mt-3">
+      <nb-accordion *ngFor="let poetry of poetries">
+        <nb-accordion-item>
+          <nb-accordion-item-header>{{poetry.title}}</nb-accordion-item-header>
+          <nb-accordion-item-body class="white-space-hold text-center">{{poetry.content}}</nb-accordion-item-body>
+        </nb-accordion-item>
+      </nb-accordion>
+    </div>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <p class="m-0">
+      <span>Copyright &copy; 2019</span>
+      <a class="text-reset pl-1" href="http://www.beian.miit.gov.cn/">粤ICP备19112238号</a>
+      <a class="text-reset pl-1" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44031002000249">
+        粤公网安备44031002000249号
+      </a>
+    </p>
+  </nb-layout-footer>
+</nb-layout>
