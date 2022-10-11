@@ -8,6 +8,8 @@ import {NbThemeService} from '@nebular/theme';
 })
 export class HomeComponent implements OnInit {
 
+  currentYear: number;
+
   constructor(private themeService: NbThemeService) {
 
   }
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentYear = new Date().getFullYear();
     this.currentHour = new Date().getHours();
     if (this.currentHour >= 7 && this.currentHour <= 19) {
       this.selectedTheme = THEMES[0];
